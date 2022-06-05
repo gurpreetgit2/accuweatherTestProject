@@ -4,3 +4,12 @@
 
 #ignore target folder
 /target/*
+target/*
+target/
+
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/uiDesigner.xml
+
+
+
