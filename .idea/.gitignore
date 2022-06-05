@@ -3,8 +3,8 @@
 /workspace.xml
 
 #ignore target folder
-/target/*
-target/*
+/target/**
+target/**/*
 target/
 
 **/.idea/workspace.xml
