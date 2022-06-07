@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,8 +19,17 @@ public class Base {
 
     private final String PROPERTIES_PATH = "src/test/java/properties/application.properties";
     protected WebDriver driver;
-    RequestSpecBuilder reqSpecBuilder;
-    ResponseSpecBuilder resSpecBuilder;
+    protected RequestSpecBuilder reqSpecBuilder;
+    protected ResponseSpecBuilder resSpecBuilder;
+
+    /*
+    Constructor of Base Class
+    1. to instantiate spec builders
+    */
+    public Base() {
+        reqSpecBuilder = new RequestSpecBuilder();
+        resSpecBuilder = new ResponseSpecBuilder();
+    }
 
     /*
    1. method to get RequestSpecBuilder with base URI and two static query Parameters
@@ -27,13 +37,15 @@ public class Base {
    3. set content type to json
     */
     public RequestSpecBuilder getReqSpecBuilderForWeatherApi() throws IOException {
+        //to print request
         PrintStream printReqLogs = new PrintStream(new FileOutputStream("src/test/java/reqResLogs/ApiReqLogs.txt"));
+        //to print response
         PrintStream printResLogs = new PrintStream(new FileOutputStream("src/test/java/reqResLogs/ApiResLogs.txt"));
         return reqSpecBuilder.setBaseUri(getPropertyValue("base.uri.of.application")).
                 addQueryParam("appid", getPropertyValue("value.for.app.id")).
                 addQueryParam("units", getPropertyValue("value.for.units")).setContentType(ContentType.JSON).
                 addFilter(RequestLoggingFilter.logRequestTo(printReqLogs)).
-                addFilter(RequestLoggingFilter.logRequestTo(printResLogs));
+                addFilter(ResponseLoggingFilter.logResponseTo(printResLogs));
     }
 
     /*
@@ -73,15 +85,18 @@ public class Base {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(durationInSeconds));
     }
 
+    //method to maximize the window
+    public void setWindowToMaxSize() {
+        driver.manage().window().maximize();
+    }
+
     //method to compare two values - UI Layer and API Layer
     public boolean compareTwoTempValues(float tempFromUiLayer, float tempFromApiLayer, float allowedVariance) {
         float diff = Math.abs(tempFromApiLayer - tempFromUiLayer);
         if (diff > allowedVariance) {
-            System.out.println("The variance in temperature is more than the allowed variance");
-            throw new RuntimeException("The variance in temperature is: " + diff + " which is more than the allowed variance value of: " + allowedVariance);
+        return false;
         } else
             return true;
     }
-
 
 }

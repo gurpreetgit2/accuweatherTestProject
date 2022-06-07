@@ -1,0 +1,15 @@
+Request method:	GET
+Request URI:	https://api.openweathermap.org/data/2.5/weather?appid=7fe67bf08c80ded756e598d6f8fedaea&units=metric&lat=28.7041&lon=77.1025
+Proxy:			<none>
+Request params:	<none>
+Query params:	appid=7fe67bf08c80ded756e598d6f8fedaea
+				units=metric
+				lat=28.7041
+				lon=77.1025
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>

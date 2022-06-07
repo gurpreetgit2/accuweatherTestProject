@@ -1,0 +1,54 @@
+HTTP/1.1 200 OK
+Server: openresty
+Date: Tue, 07 Jun 2022 19:13:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 459
+Connection: keep-alive
+X-Cache-Key: /data/2.5/weather?lat=28.7&lon=77.1&units=metric
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET, POST
+
+{
+    "coord": {
+        "lon": 77.1025,
+        "lat": 28.7041
+    },
+    "weather": [
+        {
+            "id": 721,
+            "main": "Haze",
+            "description": "haze",
+            "icon": "50n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 35.06,
+        "feels_like": 32.89,
+        "temp_min": 35.06,
+        "temp_max": 35.06,
+        "pressure": 999,
+        "humidity": 18
+    },
+    "visibility": 3000,
+    "wind": {
+        "speed": 2.06,
+        "deg": 240
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1654628471,
+    "sys": {
+        "type": 1,
+        "id": 9165,
+        "country": "IN",
+        "sunrise": 1654645991,
+        "sunset": 1654696093
+    },
+    "timezone": 19800,
+    "id": 7290413,
+    "name": "Pitampura",
+    "cod": 200
+}
