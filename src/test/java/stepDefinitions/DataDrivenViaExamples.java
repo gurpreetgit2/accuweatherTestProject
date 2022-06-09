@@ -57,15 +57,13 @@ public class DataDrivenViaExamples extends Base {
 
     @Then("temperature data is matched as per variance value {string}")
     public void temperature_data_is_matched_as_per_variance_value(String tempVariance) {
-        result = compareTwoTempValues(tempFromUiLayer, tempFromUiLayer, Float.parseFloat(tempVariance));
+        result = compareTwoTempValues(tempFromUiLayer, tempFromApiLayer, Float.parseFloat(tempVariance));
+        //System.out.println(result);
     }
 
     @And("result is {string}")
-    public void result_is(String finalResult) {
-
-        if(finalResult == String.valueOf(result)){
-            Assert.assertTrue(true);
-        }
+    public void result_is(String match) {
+        Assert.assertTrue(result == Boolean.parseBoolean(match));
 
     }
 

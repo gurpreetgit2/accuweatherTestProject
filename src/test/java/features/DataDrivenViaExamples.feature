@@ -6,9 +6,9 @@ Feature: Compare weather data from accuweather site and an open source API
     When API is triggered and temp is fetched
     And website is searched and temp is fetched
     Then temperature data is matched as per variance value "<tempVariance>"
-    And result is "<finalResult>"
+    And result is "<match>"
 
     Examples:
-      | lat     | lon     | cityName | tempVariance | finalResult |
-      | 28.7041 | 77.1025 | delhi    | 5            | true        |
-      | 28.7041 | 77.1025 | delhi    | 0            | false       |
+      | lat     | lon     | cityName | tempVariance | match |
+      | 28.7041 | 77.1025 | delhi    | 5            | true  |
+      | 28.7041 | 77.1025 | delhi    | 0            | false |
