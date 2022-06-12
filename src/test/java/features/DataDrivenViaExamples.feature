@@ -12,3 +12,8 @@ Feature: Compare weather data from accuweather site and an open source API
       | lat     | lon     | cityName | tempVariance | match |
       | 28.7041 | 77.1025 | delhi    | 5            | true  |
       | 28.7041 | 77.1025 | delhi    | 0            | false |
+      | 22.5726 | 88.3639 | kolkata  | 5            | true  |
+      | 22.5726 | 88.3639 | kolkata  | 0            | false |
+      | 19.0760 | 72.8777 | mumbai   | 5            | true  |
+      | 19.0760 | 72.8777 | mumbai   | 0            | false |
+
